@@ -8,6 +8,7 @@ from SP.data_generation import get_data_loader
 from SP import cfg
 import ast
 from datetime import datetime
+from tqdm import tqdm
 
 """
 Runs the physics_push file on generated sphere-packing samples
@@ -64,7 +65,7 @@ if __name__ == "__main__":
 
     s_now = datetime.now().strftime("%Y-%m-%d_%H%M%S")
     output_dataset = []
-    for sim in range(simulations):
+    for sim in tqdm(range(simulations), desc="Final push"):
         print(f"Simulation: {sim+1}/{simulations}")
 
         # Prepare initial centers
